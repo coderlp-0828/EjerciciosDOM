@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uso de del DOM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Liter&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Liter", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+        
+        body{
+            background:#828DED;
+        }
+
+        nav{
+            margin: 10px;
+            padding: 10px;
+            background: #eaebf5;  
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        section{
+            padding: 10px;
+            margin: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            background: #eaebf5 ;
+        }
+        .card{
+            border: 2px #828DED solid;
+            margin: 0 10px;
+            border-radius: 10px;
+            padding: 5px;
+        }
+
+        .card img{
+            width: 10px;
+        }
+        .card a{
+            text-decoration: none;
+            color: rgb(56, 56, 40);
+        }
+    </style>
+</head>
+<body>
+    
+    <nav>
+        <div>
+            <h1> JS TS y CSS3</h1>
+            <p>Este proyecto tiene por objetivo ordenar los temas, ejercicios y practicas para dominar  el lenguaje de JS y TS  al igual que el manejo de los estilos.</p>  
+        </div>
+    </nav>
+    
+    
+
+    <section>
+        <div class="card">
+            <img src="./assets/img/864799_O6NOGK0.jpg" alt="">
+            <h3 class="titulo"> titulo</h3>
+            <p class="descripcion"> Esta es la decripcion  del bloque</p>
+            <a href="./plantilla-youtube.html"> Enlace </a>
+        </div>
+        <div class="card">
+            <img src="./assets/img/864799_O6NOGK0.jpg" alt="">
+            <h3 class="titulo"> Descirpcion</h3>
+            <p class="descripcion"> Esta es la decripcion  del bloque</p>
+            <a href="./plantilla-youtube.html"> Enlace </a>
+        </div>
+        <div class="card">
+            <img src="./assets/img/864799_O6NOGK0.jpg" alt="">
+            <h3 class="titulo"> Descirpcion</h3>
+            <p class="descripcion"> Esta es la decripcion  del bloque</p>
+            <a href="./plantilla-youtube.html"> Enlace </a>
+        </div>
+        <div class="card">
+            <img src="./assets/img/864799_O6NOGK0.jpg" alt="">
+            <h3 class="titulo"> Descirpcion</h3>
+            <p class="descripcion"> Esta es la decripcion  del bloque</p>
+            <a href="./plantilla-youtube.html"> Enlace </a>
+        </div>
+    </section>
+</body>
+</html>

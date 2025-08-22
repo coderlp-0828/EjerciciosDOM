@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <link rel="stylesheet" href="./styles/styles-index.css">
+</head>
+<body>
+
+    <main class="wrapper " data-id="wrapper">
+        <h1> Bienvenido,😁 <span data-id="name">Usuario!!</span></h1>
+        
+        <form action="/verificacion.php">
+            <input type="text" placeholder="Ingresa tu nombre" class="text">
+            <input type="submit">
+        </form>
+    </main>
+
+    <!-- click -->
+    
+    <section class="section">
+        <!-- Ejemplo 1, atributo => onclick="alert('Diste Click a este boton ')" -->
+        <!-- Ejemplo 2, atributo => onclick="controladorEvento()" -->
+        <!-- <button data-id="button-show" >MOSTRAR SECCION</button> -->
+        <!-- <button data-id="button-hide">OCULTAR SECCION</button> -->
+
+
+        <!-- BOTONES PARA EVENT DELEGATION -->
+
+        <button class="button-color" data-color="darkgreen">Cambiar a color verde</button>
+        <button class="button-color" data-color="hotpink">Cambiar a color rosa</button>
+        <button class="button-color" data-color="steelblue">Cambiar a color azul</button>
+        
+        <!-- cambiando los botones por elementos a   -->
+
+        <!-- <a  data-id="button-show" href="https://google.com">Mostrar Seccion</a> -->
+        <!-- <a data-id="button-hide" href="https://google.com">Ocultar Seccion</a>
+    </section> -->
+    
+    <script src="./js/eventos.js"></script>
+</body>
+</html>
