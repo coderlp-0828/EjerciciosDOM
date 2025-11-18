@@ -9,7 +9,7 @@
  */
 
 console.warn(' -**** impresion del body ****-');
-const body = document.body;  // hace referencia a  la etiqueta body. 
+const body = document.body;  // hace referencia a la etiqueta body. 
 console.log(body); 
 
 
@@ -37,12 +37,11 @@ console.log(divError);
 console.warn('-**** forma correcta de hacer referencia al div ****-');
 const listaNodos = document.body.childNodes; 
 
-console.log(listaNodos);
-
-
+console.log('listaNodos --> ',listaNodos);
 
 // Como childNodes me regresa una lista de nodos, yo puedo hacer referencia a la posicionde numero 1  
-// como childNodes me regreso
+// como childNodes me regreso array de tipo NodeList()[]
+// dentro del array devuelve valores  o nodos de tipo texto , comentario  y elementos HTML
 
 const wrapper = document.body.childNodes[1];
 
@@ -60,27 +59,25 @@ console.log(wrapperChildren);
 
 
 /**
- * Nota: fijarse que con la propiedad  "children" 
- * retorna una HTMLCOLLECTION en lugar de un NODELIST
+ *  Nota: fijarse que con la propiedad "children" 
+ *  retorna una HTMLCOLLECTION  (que es  un tipo de objeto -> {}) en lugar de un NODELIST  []
  */
 
-// - Con la propiedad 'firstChild' retorna el primer nodo de  un padre , en este caso, de body(cualquier tipo de nodo).
-
+// - Con la propiedad 'firstChild' retorna el primer nodo de un padre, en este caso, de body (cualquier tipo de nodo).
 
 console.warn('*** primer NODO de body usando firstChild ***');
 const wrapper1erElemento = document.body.firstChild;  
 console.log(wrapper1erElemento);
+
 // - Si tengo espacios va a retornar espacios y si no sera algun nodo de tipo elemento o comentario (cualquier tipo de nodo).
-
 // - Su contraparte 'firstElementChild' va a retornar el primer nodo de un padre pero de tipo elemento. 
-
 // - Es decir, pura etiqueta HTML
 
 console.warn('*** primer NODO de body que sea elemento HTML (firstElementChild) ***');
 const wrapper1erElementoHtml = document.body.firstElementChild; 
 console.log(wrapper1erElementoHtml);
 
-// - Tambien tenemos 'lastChild' , extrae el ultimo nodo de cualquier tipo (en este caso seria el script);  
+// - Tambien tenemos 'lastChild', extrae el ultimo nodo de cualquier tipo (en este caso seria el script);  
 
 
 console.warn('*** Ultimo NODO de body (usando lastchild) ***');
@@ -95,9 +92,8 @@ console.warn('*** ultimo NODO de body que sea elemento HTML (usando lastElementC
 const wrapperUltimoNodoHtml = document.body.lastElementChild; 
 console.log( wrapperUltimoNodoHtml ); 
 
-
 // - NOTA: despues del script ya no se toman mas nodos, script es considerado como el ultimo hijo de body 
-//         por lo que  cosas abajo de script ya no se toman en cuenta.     
+//         por lo que cosas abajo de script ya no se toman en cuenta.     
 
 // - Ejemplo: 
 
@@ -131,10 +127,10 @@ console.log( wrapperExample.hasChildNodes() ); // toma cualquier tipo de nodo.
 
 console.warn('*** wrapperChildren22 ***');
 
-const wrapperChildren22 = document.body.children[0]; 
+const wrapperChildren22 = document.body.children[1]; 
 console.log( wrapperChildren22 );
 const divprueba = wrapperChildren22.children; 
-console.warn('*** divPrueba - retornar  a los hijos de wrapperChildren22 ***');
+console.warn('*** divPrueba - retornar a los hijos de wrapperChildren22 ***');
 console.log( divprueba );
 // const primerElementoWrapper = 
 // console.log(primerElementoWrapper); 
@@ -176,24 +172,24 @@ console.log(hijo1.previousSibling); // retorna cualquier nodo
 console.warn('Hermano anterior para nodos tipo elemento - propiedad previousElementSibling)');
 console.log(hijo1.previousElementSibling); 
 
-// Cuando no hay un hermano siguente o anterior me retorna  un null 
+// Cuando no hay un hermano siguente o anterior me retorna un null 
 
 /**
  *  Con lo anterior mencionado, ya podemos navegar entre mis etiquetas  y la 
  *  ventaja que tengo al hacer esto es lo siguiente 
  *  Ejemplo: 
- *      Podemos cambiar  el texto la etiqueta h1
+ *      Podemos cambiar el texto la etiqueta h1
  *      Podemos cambiar el fondo de la pagina.
  */
 
-// h1.textContent = "Esto siendo modificado desde el DOM "
+// h1.textContent = "Esto siendo modificado desde el DOM"
 
-//Ejemplo:   del cambio de texto en el titulo 
+//Ejemplo: del cambio de texto en el titulo 
 
 const h1_Hijo0 = hijo1.previousElementSibling; 
 console.log('h1_Hijo0: ',h1_Hijo0)
 
-h1_Hijo0.textContent = "Estoy siendo modificado desde el DOM "; 
+h1_Hijo0.textContent = " Estoy siendo modificado desde el DOM "; 
 
 
 //  - Ejemplo anterior pero con una 'funcion para un evento con boton' 
@@ -219,10 +215,9 @@ anchorBakcground.addEventListener( 'click', function(){
 
 
 // - documentElement => representa al HTML 
-// - style  => NOS permite cambiar estilos del html  y podemos elegir cualquier propiedad de background 
+// - style  => NOS permite cambiar estilos del html y podemos elegir cualquier propiedad de background 
 
-// los ejemplo anteriores representan la importancia de aprender a navegar  con el DOM para poder acceder a todos los elementos LOS ELEMENTOS 
-
+// los ejemplos anteriores representan la importancia de aprender a navegar con el DOM para poder acceder a todos los elementos LOS ELEMENTOS 
 
 // - Con 'parentNode' regresamos a contenedor padre de que quien lo contiene, es decir,  vamos  escalando. 
 
@@ -240,16 +235,16 @@ console.log(anchorButton.parentNode.parentNode.parentNode.parentNode.parentNode)
 
 
 // Recordar que document es el nodo raiz y va despues de la etiqueta HTML
-// cuando ya no hay mas nodos padre retorna un null (NO HYA BADA NAS ARRIBA DE DOCUMENT )
+// cuando ya no hay mas nodos padre retorna un null (NO HAY NADA MAS ARRIBA DE DOCUMENT )
 
-// - tambien esta 'parentElement'.  que solo reconoce puros nodos de tipo elemento (HTML)
+// - tambien esta 'parentElement'. que solo reconoce puros nodos de tipo elemento (HTML)
 
 console.warn(' Uso de parentElement con anchorButton ');
-console.log(anchorButton.parentElement.parentElement.parentElement. parentElement);
+console.log(anchorButton.parentElement.parentElement.parentElement.parentElement);
 
 
-// CON PARET ELEMENT NO LLEGAMOS A #DOCUMENT , UNA VEZ LLEGA AL HTML  NOS DA NULL
-// esto pasa porque con parenElement solo retorna nodos padre de tipo elemento
+// CON PARET ELEMENT NO LLEGAMOS A #DOCUMENT, UNA VEZ LLEGA AL HTML  NOS DA NULL
+// esto pasa porque con parentElement solo retorna nodos padre de tipo elemento
 
 
 /**
@@ -265,8 +260,8 @@ console.log(anchorButton.parentElement.parentElement.parentElement. parentElemen
  *  LO ANTERIOR MOSTRADO NO ES UNA FORMA SENCILLA U OPTIMA  
  *  DE NAVAGAR ENTRE NODOS O ELEMENTOS. 
  *  
- *  UNA FORMA MAS PRACTICA  ES COMO SE MUESTRA A CONTINUACION
- *  Ya que para acceder a un elemento tenemos que acceder a a body, luego al hijo de body, 
+ *  UNA FORMA MAS PRACTICA ES COMO SE MUESTRA A CONTINUACION
+ *  Ya que para acceder a un elemento tenemos que acceder a body, luego al hijo de body, 
  *  despues al hijo del hijo de body, hasta acceder al elemento que necesitamos  
  * 
  *  Hay matedos para acceder a elementos que tengan caracteristicas espaciales      
@@ -275,7 +270,7 @@ console.log(anchorButton.parentElement.parentElement.parentElement. parentElemen
 
 // -  Ejemplo para acceder a wrapper. 
 
-// - getElementById  nos permite  obtener un elemento con base a su ID
+// - getElementById nos permite  obtener un elemento con base a su ID
 
 console.warn('wrapper2 => usando getElementById()');
 const wrapper2 = document.getElementById("wrapper"); 
@@ -299,7 +294,7 @@ console.log(links);
 
 //Esto hace mas sencillo buscar a los elementos de tipo class 
 
-// para ingresar al primerelemento: 
+//Para ingresar al primer elemento: 
 
 console.warn('Obteniendo el primer elemento de mi lista');
 console.log(links[0]); 
@@ -323,26 +318,26 @@ console.log(classLinksWrapper2);
 
 
 // - getElementByTagName() =>  retorna una lista  de elementos HTML (CollectionHTML) 
-//  con todos los nodos que concidan  con la etiqueta especificada en el metodo 
+//  con todos los nodos que concidan con la etiqueta especificada en el metodo. 
 
-// si no se encuentra la etiqueta, va a retornar  una lista vacia 
+// si no se encuentra la etiqueta, va a retornar una lista vacia. 
 
 
 console.warn("trabajando con el metodo getElementsByTagName()"); 
 const divs = document.getElementsByTagName("div");
 console.log(divs); 
 
-//NOTA: este metodo  puede ser utilizado en cualquier elemento del DOM 
+//NOTA: este metodo puede ser utilizado en cualquier elemento del DOM 
 
-//Si llegamos a usarlo dentro de un nodo, solomente va a poder buscar dentro de los nodos del nodo en el que estamos buscando
+// Si llegamos a usarlo dentro de un nodo, solomente va a poder buscar dentro de los nodos del nodo en el que estamos buscando
 
 // - Ejemplo:  
 
-console.warn(' buscandos etiquetas div en wrapper2 ');
+console.warn(' buscando etiquetas div en wrapper2 ');
 const divsInWrapper = wrapper2.getElementsByTagName('div'); 
 console.log(divsInWrapper);
 
-// - getElementsByName() => Este metodo retorna  una lista  elementos HTML con todos los nodos que contengan en el atributo name el valor
+// - getElementsByName() => Este metodo retorna  una lista elementos HTML con todos los nodos que contengan en el atributo name el valor
 //   especificado  en el metodo 
 //   En pocas palabras, busca los elementos HTML que tengan el atributo name (NORMALMENTE USADO PARA INPUTS); 
 
@@ -359,7 +354,7 @@ console.log(input);
 //   Es el metodo mas versatil 
 
 
-console.warn(' Uso del querySelector - busqueda por id');
+console.warn('Uso del querySelector - busqueda por id');
 const wrapperForId = document.querySelector('#wrapper'); 
 console.log(wrapperForId); 
 
@@ -382,6 +377,7 @@ console.log(wrapperLinkBold);
 console.warn('Uso del querySelector - buscando al ultimo tipo de class=link ')
 const wrapperLastLink = wrapperForId.querySelector('.link:last-of-type'); 
 console.log(wrapperLastLink);
+
 // si quiero buscar  por id  colocare el hash (#wrapper)
 // si quiero bucar por clase voy a buscar con punto (.wrapper) => OJO  que aqui apunto a class
 // tambien puedo buscar por atributo, este caso la clase, pero puede ser otro ( '[class="wrapper"]'); 
@@ -401,34 +397,26 @@ console.log(links2);
 
 // - DIFERENCIAS ENTRE  NODELIST Y HTML COLLECTIONS 
 
-
-
-
-
-
-
-
 //      La primera deferencia de nodelist con HTMLCollections es que podemos guardar cualquier tipo de nodo
-//      La segunda diferencia es que podemos trbajar con el foreach() en el nodeLsit  | Una lista HTMLCollection no puede utilizar foreach. 
+//      La segunda diferencia es que podemos trabajar con el foreach() en el nodeLsit | Una lista HTMLCollection no puede utilizar foreach. 
 //      linksNode (Node list())  no es un objeto vivo, una vez que se obtiene una lista  de nodos ya no se actualiza aunque el DOM CAMBIE
 
 
-// nodelist puede guardar cualquier tipo de nodos //texto, comentarios, atributos, documentos, etc  
-// nodelist  usa foreach 
-// nodelist no es un objeto vivo 
+//       nodelist puede guardar cualquier tipo de nodos //texto, comentarios, atributos, documentos, etc  
+//       nodelist  usa foreach 
+//       nodelist no es un objeto vivo 
 
-// HTML COLLECTION NO PUEDE USAR  FOREACH
+// HTML COLLECTION NO PUEDE USAR FOREACH
 // HTML COLLECTION ES UN  OBJETO VIVO QUE SE ACTUALIZA SI EL DOM CAMBIA
 // HTML COLLECTION PUEDE USAR EL METODO ".item()" DONDE PUEDO OBTENER A SUS ELEMENTOS POR SU POSICION    
 
 
-//  con la etiqueta nodelist podemos ver como mantiene los primeros 4 elementos 
-// y el ultimo elemento que se a creado no lo actualiza en su longitud 
+// Con la etiqueta nodelist podemos ver como mantiene los primeros 4 elementos 
+// y el ultimo elemento que se a creado no lo actualiza en su longitud. 
 
-//si vemos el HTMLcollection  vemos que si toma al siguiente valor. 
+// si vemos el HTMLcollection vemos que si toma al siguiente valor. 
 
-
-//para poder usar foreach en querySelectorAll necesitamos cmambiar  la lista  HTMLCollections 
+// Para poder usar foreach en querySelectorAll necesitamos cmambiar la lista HTMLCollections 
 // a un array   
 
 const linksNode = Array.from(document.querySelectorAll('.link'));  
@@ -436,57 +424,55 @@ const linksNode = Array.from(document.querySelectorAll('.link'));
 
 //RECORDAR QUE TODOS LOS NODOS  SON OBJETOS EN JAVASCRIPT
 
-//CONSOLE.DIR Es  la manera de ver todas la propiedades que tiene un objeto. 
+//CONSOLE.DIR 
 
+// Es la manera de ver todas la propiedades que tiene un objeto. 
 
 // Creando un documento para entender el concepto de un objeto vivo 
 
-
 // -propiedad.className 
 
-// utilizar  className para darle clases a  los elementos no estan buena idea si no queremos sobrescribir las clases anteriores  
+// utilizar  className para darle clases a  los elementos no es tan buena idea si no queremos sobrescribir las clases anteriores  
 
+//Dando console.dir a los elementos con las clase link 
 
-//Dando  console.dir a los elementos con las clase link 
+// Vemos como cada elemento puede tener elemntos diferenctes, por ejemplo, la propiedad href con el cual podemos modificar la url o el enlace.  
 
-// Vemos como cada elemento puede tener elemntos diferenctes, por ejemplo, la propiedad href  con el cual podemos modificar la url  o el enlace.  
-
-
-// con esto podemos ver que tenemos el valor de los atributos como propiedades del nodo 
-
+// Con esto podemos ver que tenemos el valor de los atributos como propiedades del nodo. 
 
 // ¿que pasa si yo le agrego a una etiqueta, un atributo href?
 
 // no la reconoce y me rotorna 'undefined' si yo quiero mostrarla, ejemplo: 
 
-//En el estandard  los elementos h21 no tienen el atributo href
+// En el estandard  los elementos h21 no tienen el atributo href
 
 
 // - propiedad.nodeName 
 
-// no retorna el nombre del nodo, es una propiedad que reconoce todos los nodo del DOM  
+// no retorna el nombre del nodo, es una propiedad que reconoce todos los nodos del DOM  
 
-// en el caso de title  el nombre del nodo es H1
+// en el caso de title el nombre del nodo es H1
 
-//  #text  es el nombre de  un nodo de tipo texto. 
+//  #text  es el nombre de un nodo de tipo texto. 
 
 
-
-//  - propiedad. innerHTML
+//  - propiedad.innerHTML
 
 // RETORNA  el HTML interno del  nodo  en donde es llamado 
 
 // ejemplo con el div.wrapper (retorna todo el html interno de wrapper )
-// tambien  puede sobreescribre el HTML INTERNO  de wrapper 
+// tambien puede sobreescribir el HTML INTERNO de wrapper 
 
-// si queires poner texto  que ingresa el usuario, debes evitar utilizar innerHTML   
+// si queires poner texto que ingresa el usuario, debes evitar utilizar innerHTML   
 
 // YA QUE CON EL PUEDEN INGRESAR CODIGO HTML Y TAMBIEN CON ESTO 
 // CODIGO JS Y ESTO PUEDE EJUCUTAR CODIGO MALICIOSO EN TU PROYECTO
 
 // - PALABRA reservada para crear indetificadores personalizados  "data-nombrePropiedad". 
 
-// para  modificar atributos personalizados puedes hacerlo con getatribute o con setAtribute 
+// para modificar atributos personalizados puedes hacerlo con getatribute o con setAtribute. 
 
-// ó en su lugar dataset  donde se encuentran todos los atributos personalizados 
+// ó en su lugar dataset donde se encuentran todos los atributos personalizados. 
+
+
 

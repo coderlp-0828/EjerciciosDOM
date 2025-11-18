@@ -84,7 +84,7 @@ function hideSection(e){
  *  Ejemplo: onclick: "" 
  *  Dentro de las comillas poner => alert('Diste Click a este boton ')
  * 
- *               Ejemplo 1, atributo => onclick="alert('Diste Click a este boton ')".
+ *               Ejemplo 1, atributo => onclick="alert('Diste Click a este boton')".
  *  
  *  De la misma forma podemos llamar una funcion y solicitar el nombre: 
  * 

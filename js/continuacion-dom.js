@@ -14,7 +14,7 @@ const img = document.querySelector('img');
 const figcaption =  document.querySelector('figcaption');
 
 /**
- * Ejemplo  del uso del identificadir personalizado
+ *  Ejemplo del uso del identificador personalizado
  */
 const idImg = document.querySelector('[data-identificador="img"]');
 
@@ -31,15 +31,20 @@ const idImg = document.querySelector('[data-identificador="img"]');
 
 
  /**
-  * de la lista q ue se muestra, una de las propiedades principales  es el className 
-  * Esta propiedad retorna un string  con todas las clases  que tiene 
+  * 
+  * De la lista que se muestra, una de las propiedades principales es el className. 
+  * 
+  * Esta propiedad retorna un string con todas las clases que tiene: 
+  *  
   */
 
- console.log("Imprimiendo classname => ", wrapper.className);
+console.log("Imprimiendo classname => ", wrapper.className);
 
- /**
+/**
+ * 
   * Tambien a esta propiedad podemos asignale una nueva propiedad 
-  * EL probelma es que lo sobresecrtibimos. 
+  * 
+  * EL problema es que lo sobresecrtibimos. 
   * 
   */
 
@@ -48,7 +53,7 @@ wrapper.className = "container";
 console.log(wrapper.className);
 
 /**
- *  Este elemento  tiene propiedades diferentes 
+ *  Este elemento tiene propiedades diferentes 
  *  uno que hay que resaltar es la propiedad href  
  *  donde podemos extraer la url:  http://127.0.0.1:5502/plantilla-youtube.html#
  */
@@ -71,23 +76,25 @@ console.log(link.href);
 
 /**
  *  Igual en el input, 
- *  la propiedad value  al parecer solo se le puede asignar al input.   
+ *  La propiedad value al parecer solo se le puede asignar al input.   
  *  
  */
 
 /**
+ * 
  * para retornar el nombre del nodo 
  * 
  */
+console.log("Nodename => ", title.nodeName); 
 
-console.log(title.nodeName); 
 
 
 /**
  *  AQUI llamamos al nombre del primer nodo ( con childNodes jalamos todo los nodos de cualquier tipo) 
  */
 
-console.log(wrapper.childNodes[0].nodeName);
+
+console.log("wrapper.childNodes[0].nodeName =>", wrapper.childNodes[0].nodeName);
 
 /**
  *   --innerHTML-- retorna todo lo que contiene wrapper, incluso loss espacios
@@ -102,6 +109,7 @@ console.log(wrapper.innerHTML);
  *  asignandole a este valor una propiedad 
  *  Ejemplo: 
  */
+
 
 // wrapper.innerHTML =  `
 // <h2> He sobrescrito el Dom</h2>
@@ -131,9 +139,9 @@ console.log(wrapper.innerHTML);
 // `; 
 
 /**
- *  El tema que se tiene  con concatenar 
+ *  El tema que se tiene con concatenar 
  *  es que se recarga el HTML VIEJITO, esto hace  
- *  que se renderice(y no es tan bueno porque puedo tomar muchos recursos del usuario). 
+ *  que se renderice( y no es tan bueno porque puedo tomar muchos recursos del usuario ). 
  * 
  *  como conclusion innerHTML retorna  o nos permite sorescribir el HTML interno de un elemento. 
  */
